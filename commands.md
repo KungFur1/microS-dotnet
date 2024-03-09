@@ -17,3 +17,4 @@
 * Run docker-compose.yml in detached mode (without logs in the console): `docker compose up -d`
 
 - Initialize a git repository: `git init`
+- Create a .gitignore file for your solution: `dotnet new gitignore`
