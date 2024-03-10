@@ -18,3 +18,6 @@
 
 - Initialize a git repository: `git init`
 - Create a .gitignore file for your solution: `dotnet new gitignore`
+
+* Create a .NET class library: `dotnet new classlib -o src/Contracts`
+* Add reference to other projects: `dotnet add reference ../../src/Contracts/`

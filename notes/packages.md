@@ -7,3 +7,6 @@ VS code extension to install packages: **NuGet Gallery**.
 * `MongoDB.Entities` - MongoDB support for...?
 
 - `Microsoft.Extensions.Http.Polly` - for continously sending HTTP requests until successful.
+
+* `MassTransit.RabbitMQ` - Client for RabbitMQ.
+* `MassTransit.EntityFrameworkCore` - For setting up the outbox in the publisher.
