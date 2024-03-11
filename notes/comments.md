@@ -181,4 +181,36 @@ public class AuctionDeleted
 Fault Queues are created automatically by Mass Transit and they contain the information about failed failed to consume messages, which throwed an exception in the middle of handling the message. Fault queues can also be consumed and they contain the messages that were failed to send, so you can change them and resend them or use them for logs or analysis.
 
 
-## END RabbitMQ
+## Identity Server
+Authentication server, implements OpenID connect (OIDC) and OAuth 2.0
+
+Requires a license.
+
+Single Sign On solution - one login for all applications.
+
+### Terminology
+- Resource owner - user that uses your services and has access to his own data.
+- Client - the application (frontend), that wants to perform actions on behalf of resource owner.
+- Authorization Server - the application that knows the resource owner.
+- Resouce Server - has data that the client wants to access. Resource Server trusts Authorization Server.
+- Redirect URI - the link that Authorization Server will redirect to after loging in.
+- Response Type - Code.
+- Scope - the operations that the client wants access to, like: Read Auctions, Create Auction, Delete Auction, Read Profile...
+- Consent Form - Do you want to allow microS-dotnet to access your profile, email etc?
+- Client ID - identify the client with the authorization server (we will have two cleints: NextJsApp, Postman).
+- Client Secret - is provided by the Authorization Server to the Client and is saved by both. (Client ID, Client Secret)
+- Authorization Code - a short lived code that is sent to the client, which is then sent to the Authorization Server along with the Client Secret in exchange for the Access Token.
+- Access Token - is used to access the Resource Server.
+
+### OAuth 2.0 Flow
+1. User opens the Client and goes to Login.
+2. Client sends: Client ID, Redirect URI, Response Type, Scope to the Authorization Server.
+3. The Authorization Server then verifies who you are and if necessary prompts for a login. (Maybe you already have a session on the identity server)
+4. (Optional) Consent form, if your identity server is used for multiple applications, then maybe you need to verify that the user is ok with sharing his profile to other applications.
+5. Temporary Authorization code is passed to the users browser, which then calls using the redirect URI to the client app server.
+6. The client app then directly calls the Authorization Server and sends Client ID and Client Secret.
+7. The Authorization Server then responds with the access token.
+8. Finally, everytime when Client app is requesting data from the Resource Server it also sends the Access Token.
+
+
+* Claim - a JWT field

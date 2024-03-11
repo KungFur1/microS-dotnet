@@ -21,3 +21,6 @@
 
 * Create a .NET class library: `dotnet new classlib -o src/Contracts`
 * Add reference to other projects: `dotnet add reference ../../src/Contracts/`
+
+- Install Duende Identity Server Templates: `dotnet new --install Duende.IdentityServer.Templates`
+- Create the Identity Server template project: `dotnet new isaspid -o src/IdentityService`
