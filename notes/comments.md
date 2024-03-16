@@ -214,3 +214,20 @@ Single Sign On solution - one login for all applications.
 
 
 * Claim - a JWT field
+
+## Gateway Service
+
+Reverse Proxy - handles all incoming requests to the server and redistrubutes them to the appropriate micro-services.
+
+- Very typical in Micro Services.
+- Single surface area for requests.
+- Client is unaware of any internal services.
+- Security.
+- SSL termination.
+- URL rewriting.
+- Load balancing.
+- Caching.
+
+### YARP
+
+YARP - yet another reverse proxy. It is imported as a library into a standard .NET web api project. You then need to configure the routes in your configuration file.

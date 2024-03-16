@@ -24,3 +24,5 @@
 
 - Install Duende Identity Server Templates: `dotnet new --install Duende.IdentityServer.Templates`
 - Create the Identity Server template project: `dotnet new isaspid -o src/IdentityService`
+
+* Create the base for GatewayService: `dotnet new web -o src/GatewayService`

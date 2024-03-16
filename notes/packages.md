@@ -12,3 +12,5 @@ VS code extension to install packages: **NuGet Gallery**.
 * `MassTransit.EntityFrameworkCore` - For setting up the outbox in the publisher.
 
 - `Microsoft.AspNetCore.Authentication.JwtBearer` - For decoding jwt.
+
+* `Yarp.ReverseProxy` - Reverse proxy for gateway.

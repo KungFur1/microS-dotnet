@@ -18,6 +18,9 @@ var builder = WebApplication.CreateBuilder(args);
     {
         x.AddConsumersFromNamespaceContaining<AuctionCreatedFaultConsumer>();
 
+        // x.AddConsumersFromNamespaceContaining<AuctionFinishedConsumer>(); These are not needed, because they are in the same namespace as AuctionCreatedFaultConsumer
+        // x.AddConsumersFromNamespaceContaining<BidPlacedConsumer>();
+
         x.SetEndpointNameFormatter(new KebabCaseEndpointNameFormatter("auction", false));
 
         x.AddEntityFrameworkOutbox<AuctionDbContext>(opt =>
