@@ -231,3 +231,49 @@ Reverse Proxy - handles all incoming requests to the server and redistrubutes th
 ### YARP
 
 YARP - yet another reverse proxy. It is imported as a library into a standard .NET web api project. You then need to configure the routes in your configuration file.
+
+## Dockerizing (containerising) The Micro Services
+
+Dockerized applications run in the same way on any OS. They require less resources as all containers are hosted on Docker Engine, where as creating a virtual machine is more resource intensive.
+
+To dockerize the application we will need to create a Docker Image for each micro service. That image will then be used to launch docker containers.
+
+### Dockerfile
+
+Dockerfile is used for creating a docker Image, it is usually based on an existing image using the command `FROM`.
+
+```Dockerfile
+- FROM: Specifies the base image. 
+  Example: FROM ubuntu:18.04
+
+- RUN: Executes commands in a new layer on top of the current image. 
+  Example: RUN apt-get update && apt-get install -y git
+
+- CMD: Executes the command when you run the container, unless overriden. 
+  Example: CMD ["echo", "Hello World"]
+
+- ENTRYPOINT: Executes the command when you run the container, impossible to override.
+  Example: ENTRYPOINT ["python", "my_app.py"]
+
+- EXPOSE: Exposes a port that the container will listen on. 
+  Example: EXPOSE 80
+
+- ENV: Sets environment variables (better to set environment variables when starting a container). 
+  Example: ENV MY_NAME="John Doe"
+
+- COPY: Copy files/directories to container. (ADD is similar, but has more features)
+  COPY Example: COPY . /app
+
+- WORKDIR: Sets the working directory for instructions that follow (creates the directory if it doesnt exist). 
+  Example: WORKDIR /app
+
+- VOLUME: Creates a mount point with the specified name. 
+  Example: VOLUME /data
+
+- LABEL: Adds metadata to an image. 
+  Example: LABEL version="1.0"
+```
+
+Environment variables can override the appsettings.Development.json, property__subproperty__subsubproperty.
+
+??? How do the configuration files work in my services? appsettings, appsettings.development, launchsettings????

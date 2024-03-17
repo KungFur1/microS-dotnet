@@ -26,3 +26,5 @@
 - Create the Identity Server template project: `dotnet new isaspid -o src/IdentityService`
 
 * Create the base for GatewayService: `dotnet new web -o src/GatewayService`
+
+- Build a docker image from docker-compose.yml: `docker compose build auction-svc`

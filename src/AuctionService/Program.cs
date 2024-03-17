@@ -32,6 +32,12 @@ var builder = WebApplication.CreateBuilder(args);
 
         x.UsingRabbitMq((context, configuration) => 
         {
+            configuration.Host(builder.Configuration["RabbitMq:Host"], "/", host => 
+            {
+                host.Username(builder.Configuration.GetValue("RabbitMq:Username", "guest")); // Get configuration from environment variables
+                host.Password(builder.Configuration.GetValue("RabbitMq:Password", "guest"));
+            });
+
             configuration.ConfigureEndpoints(context);
         });
     });
