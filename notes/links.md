@@ -5,3 +5,5 @@
 - [MassTransit](https://masstransit.io/)
 
 - [YARP](https://microsoft.github.io/reverse-proxy/index.html)
+
+- [NextJS](https://nextjs.org/)

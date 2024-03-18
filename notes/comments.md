@@ -236,6 +236,8 @@ YARP - yet another reverse proxy. It is imported as a library into a standard .N
 
 Dockerized applications run in the same way on any OS. They require less resources as all containers are hosted on Docker Engine, where as creating a virtual machine is more resource intensive.
 
+Environment variables can override the appsettings.Development.json. `ENV property__subproperty__subsubproperty`. These environment variables take precedence over the file-based settings.
+
 To dockerize the application we will need to create a Docker Image for each micro service. That image will then be used to launch docker containers.
 
 ### Dockerfile
@@ -274,6 +276,26 @@ Dockerfile is used for creating a docker Image, it is usually based on an existi
   Example: LABEL version="1.0"
 ```
 
-Environment variables can override the appsettings.Development.json, property__subproperty__subsubproperty.
+## BFF
+BFF - backend for frontend.
 
-??? How do the configuration files work in my services? appsettings, appsettings.development, launchsettings????
+### Server Side Rendering vs Client Side Rendering
+Rendering here refers to generating HTML from data (auction json objects), this can either be done on the client side, where JS makes many HTPP requests to the server to get the auction data and then 'renders' it into an HTML, or this can be done by the server, where the server calls all of the microservices, gathers the data and turns all of the data into one HTML and only then sends it to the client.
+
+#### Client Side
+- Rich Interactions and Smooth User Experience: Since the page doesn't reload for every interaction, users enjoy a smoother experience similar to desktop applications.
+- Reduced Server Load: The server only needs to provide the data, not render the HTML, reducing the load especially under high traffic.
+- Full Control Over the View: Developers have fine-grained control over the user experience and transitions between different parts of the application.
+- Slower Initial Load: The browser has to load and execute JavaScript before it can render content, leading to a potentially longer wait time before the user sees anything meaningful.
+- SEO Challenges: Content that is loaded dynamically can be harder for search engines to index, although many search engines have improved their ability to crawl and index JavaScript content.
+- Dependent on JavaScript: Users with JavaScript disabled or with slow devices may have a suboptimal experience.
+
+#### Server Side
+- Faster Initial Page Load: Users see the content sooner because the server sends a fully rendered page.
+- SEO Friendly: Since the content is already rendered before it reaches the browser, search engines can easily crawl and index the content, which is beneficial for SEO.
+- Consistent Performance: The rendering performance is more predictable since it doesn't depend on the user's device capabilities.
+- Slower Interactivity: Every new page request or data update requires a round trip to the server, which can slow down the user experience.
+- Higher Server Load: Generating content dynamically for each request can put a significant load on the server, especially with high traffic.
+
+### NextJS
+...

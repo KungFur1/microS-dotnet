@@ -9,3 +9,5 @@
 * **Material Icon Theme** - Makes everything look nice.
 * **REST Client** - Simple way to test your API.
 
+- **Tailwind CSS IntelliSense** - Intellisense for tailwind.
+- **ES7+ React/Redux/React-Native snippets** - react snippets. (rfc)
